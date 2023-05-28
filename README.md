@@ -7,7 +7,7 @@
 ### Activate virtual environment
 
 ````shell
-virtualenv -p python3 /home/CRUD/venv
+virtualenv -p python3 /home/myproject/venv
 source venv/bin/activate
 ````
 
