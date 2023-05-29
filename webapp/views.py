@@ -19,10 +19,10 @@ class EmployeeViewSet(APIView):
         file_name = 'Sample.xlsx'
         byte_buffer = BytesIO()
         df = pd.DataFrame.from_dict(queryset.values())
-        #df2 = pd.DataFrame.from_dict(employee2)    
         writer = pd.ExcelWriter(byte_buffer,engine='xlsxwriter')
         df.to_excel(writer,sheet_name='Employee',index=False)
-        #df2.to_excel(writer,sheet_name='Research and Development',index=False)
+        df2 = pd.DataFrame.from_dict(queryset.filter(department='Research and Development').values())  
+        df2.to_excel(writer,sheet_name='Research and Development',index=False)
         writer.close()
         return byte_buffer,file_name
     
